@@ -33,4 +33,4 @@
 
 ## GitHub
 
-Частный репозиторий https://github.com/Pall2006/My-portfolio, ветка `main`. Вход в GitHub запомнен на компьютере (Git Credential Manager), но из неинтерактивной оболочки Claude `git push` не проходит — отправлять командой в терминальной вкладке пользователя: `git -C C:/Projects/portfolio push`. GitHub CLI (`gh`) не установлен.
+Частный репозиторий https://github.com/Pall2006/My-portfolio, ветка `main`. Вход в GitHub запомнен на компьютере (Git Credential Manager), `git push` работает прямо из оболочки Claude. Если вход когда-нибудь слетит, push из неинтерактивной оболочки упадёт с «terminal prompts disabled» — тогда запустить `git -C C:/Projects/portfolio push` в терминальной вкладке пользователя, откроется окно входа. GitHub CLI (`gh`) не установлен. Автор коммитов в этом репозитории: «Павел Мартьянов».
