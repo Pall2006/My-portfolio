@@ -1,0 +1,5 @@
+/* Плавное появление блоков при прокрутке (класс .visible ставит js/reveal.js).
+   Подключается последним: эти правила должны перекрывать стили блоков. */
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }

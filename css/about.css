@@ -1,0 +1,13 @@
+/* Блок «Обо мне» и цифры-факты */
+
+.about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.about .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 56px; }
+.about p { font-size: 18px; color: var(--muted); margin-bottom: 18px; }
+.facts { display: flex; gap: 40px; margin-top: 32px; flex-wrap: wrap; }
+.fact b { display: block; font-size: 36px; font-weight: 800; color: var(--accent); line-height: 1.1; }
+.fact span { font-size: 14px; color: var(--muted); }
+
+/* Телефоны и планшеты */
+@media (max-width: 860px) {
+  .about .grid { grid-template-columns: 1fr; gap: 36px; }
+}

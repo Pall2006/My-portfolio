@@ -1,0 +1,75 @@
+/* Общее для всей страницы: цвета, шрифт, отступы, кнопки */
+
+:root {
+  --bg: #faf7f4;
+  --surface: #ffffff;
+  --text: #1f1d1b;
+  --muted: #6b6560;
+  --accent: #b5532f;
+  --accent-soft: #f3e3da;
+  --border: #ece5df;
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(60, 35, 20, 0.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161412;
+    --surface: #211e1b;
+    --text: #f3eee9;
+    --muted: #a8a09a;
+    --accent: #e07a52;
+    --accent-soft: #3a2a22;
+    --border: #2f2a26;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Manrope", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+section { padding: 88px 0; }
+h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  transition: transform .2s, box-shadow .2s, background .2s;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(181, 83, 47, 0.3); }
+.btn-ghost { color: var(--accent); background: transparent; }
+.btn-ghost:hover { background: var(--accent-soft); }
+
+/* Телефоны и планшеты */
+@media (max-width: 860px) {
+  section { padding: 64px 0; }
+}

@@ -1,0 +1,26 @@
+/* Меню сверху */
+
+nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+nav .container {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.logo { font-weight: 800; font-size: 18px; color: var(--text); text-decoration: none; }
+.logo span { color: var(--accent); }
+nav ul { display: flex; gap: 28px; list-style: none; }
+nav a.link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; transition: color .2s; }
+nav a.link:hover { color: var(--accent); }
+
+/* Телефоны и планшеты */
+@media (max-width: 860px) {
+  nav ul { gap: 16px; }
+  nav a.link { font-size: 14px; }
+}
+@media (max-width: 420px) {
+  nav ul li:first-child { display: none; }
+}

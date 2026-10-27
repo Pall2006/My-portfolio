@@ -1,0 +1,29 @@
+/* Карточки проектов */
+
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.card .cover { height: 160px; display: grid; place-items: center; font-size: 48px; }
+.card:nth-child(1) .cover { background: linear-gradient(135deg, #f6d5c4, #e9a07f); }
+.card:nth-child(2) .cover { background: linear-gradient(135deg, #d6e4dc, #8fb8a2); }
+.card:nth-child(3) .cover { background: linear-gradient(135deg, #dcd9ee, #9f99cf); }
+.card .body { padding: 24px; }
+.card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  font-size: 12px; font-weight: 700;
+  padding: 4px 12px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent);
+}
+
+/* Телефоны и планшеты: карточки в один столбец */
+@media (max-width: 860px) {
+  .cards { grid-template-columns: 1fr; }
+}
