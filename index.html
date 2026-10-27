@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Павел Мартьянов — портфолио</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf7f4;
+      --surface: #ffffff;
+      --text: #1f1d1b;
+      --muted: #6b6560;
+      --accent: #b5532f;
+      --accent-soft: #f3e3da;
+      --border: #ece5df;
+      --radius: 20px;
+      --shadow: 0 10px 30px rgba(60, 35, 20, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161412;
+        --surface: #211e1b;
+        --text: #f3eee9;
+        --muted: #a8a09a;
+        --accent: #e07a52;
+        --accent-soft: #3a2a22;
+        --border: #2f2a26;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Manrope", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 88px 0; }
+    h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    /* Навигация */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo { font-weight: 800; font-size: 18px; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    nav ul { display: flex; gap: 28px; list-style: none; }
+    nav a.link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; transition: color .2s; }
+    nav a.link:hover { color: var(--accent); }
+
+    /* Шапка */
+    .hero { padding: 96px 0 88px; }
+    .hero .container {
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p.lead { font-size: 20px; color: var(--muted); max-width: 520px; margin-bottom: 36px; }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      border: 2px solid var(--accent);
+      transition: transform .2s, box-shadow .2s, background .2s;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(181, 83, 47, 0.3); }
+    .btn-ghost { color: var(--accent); background: transparent; }
+    .btn-ghost:hover { background: var(--accent-soft); }
+
+    .photo-wrap { position: relative; justify-self: center; }
+    .photo-wrap::before {
+      content: "";
+      position: absolute; inset: 18px -18px -18px 18px;
+      background: var(--accent-soft);
+      border-radius: 32px;
+    }
+    .photo-wrap img {
+      position: relative;
+      display: block;
+      width: 100%; max-width: 360px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Обо мне */
+    .about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .about .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 56px; }
+    .about p { font-size: 18px; color: var(--muted); margin-bottom: 18px; }
+    .facts { display: flex; gap: 40px; margin-top: 32px; flex-wrap: wrap; }
+    .fact b { display: block; font-size: 36px; font-weight: 800; color: var(--accent); line-height: 1.1; }
+    .fact span { font-size: 14px; color: var(--muted); }
+
+    /* Проекты */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .card .cover { height: 160px; display: grid; place-items: center; font-size: 48px; }
+    .card:nth-child(1) .cover { background: linear-gradient(135deg, #f6d5c4, #e9a07f); }
+    .card:nth-child(2) .cover { background: linear-gradient(135deg, #d6e4dc, #8fb8a2); }
+    .card:nth-child(3) .cover { background: linear-gradient(135deg, #dcd9ee, #9f99cf); }
+    .card .body { padding: 24px; }
+    .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-size: 12px; font-weight: 700;
+      padding: 4px 12px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent);
+    }
+
+    /* Контакты */
+    .contact .box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 48px;
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px;
+      box-shadow: var(--shadow);
+    }
+    .contact .intro p { color: var(--muted); font-size: 17px; }
+    form { display: grid; gap: 18px; }
+    label { display: grid; gap: 6px; font-weight: 600; font-size: 14px; }
+    input, textarea {
+      font-family: inherit; font-size: 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+    textarea { resize: vertical; min-height: 140px; }
+    form .btn { justify-self: start; }
+
+    .thanks { display: none; text-align: center; padding: 40px 0; }
+    .thanks .icon {
+      width: 72px; height: 72px; margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--accent-soft); color: var(--accent);
+      display: grid; place-items: center; font-size: 36px;
+    }
+    .thanks h3 { font-size: 26px; margin-bottom: 8px; }
+    .thanks p { color: var(--muted); margin-bottom: 24px; }
+    .sent form { display: none; }
+    .sent .thanks { display: block; animation: pop .4s ease; }
+    @keyframes pop { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: none; } }
+
+    footer { padding: 32px 0 48px; text-align: center; color: var(--muted); font-size: 14px; }
+
+    /* Появление при прокрутке */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Телефоны и планшеты */
+    @media (max-width: 860px) {
+      section { padding: 64px 0; }
+      .hero { padding: 48px 0 64px; }
+      .hero .container, .about .grid, .contact .box { grid-template-columns: 1fr; gap: 36px; }
+      .photo-wrap { order: -1; max-width: 280px; }
+      .cards { grid-template-columns: 1fr; }
+      .contact .box { padding: 28px 20px; }
+      nav ul { gap: 16px; }
+      nav a.link { font-size: 14px; }
+    }
+    @media (max-width: 420px) {
+      nav ul li:first-child { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="#top" class="logo">Павел<span>.</span></a>
+      <ul>
+        <li><a class="link" href="#about">Обо мне</a></li>
+        <li><a class="link" href="#projects">Проекты</a></li>
+        <li><a class="link" href="#contact">Контакты</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ШАПКА: имя и короткое описание -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div>
+        <span class="eyebrow">Привет, я</span>
+        <h1>Павел <em>Мартьянов</em></h1>
+        <p class="lead">Инженер и автор полезных цифровых инструментов. Делаю простые решения для сложных задач.</p>
+        <div class="btns">
+          <a href="#projects" class="btn btn-primary">Мои проекты</a>
+          <a href="#contact" class="btn btn-ghost">Написать мне</a>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <img src="photo.jpg" alt="Павел Мартьянов">
+      </div>
+    </div>
+  </header>
+
+  <!-- ОБО МНЕ -->
+  <section class="about" id="about">
+    <div class="container grid">
+      <div class="reveal">
+        <span class="eyebrow">Обо мне</span>
+        <h2>Немного о себе</h2>
+      </div>
+      <div class="reveal">
+        <p>Здесь будет первый абзац о вас: чем вы занимаетесь, в какой области у вас опыт и что вам больше всего нравится в работе. Пишите просто и по-человечески — так, как рассказали бы о себе при знакомстве.</p>
+        <p>Во втором абзаце можно рассказать, как вы подходите к задачам, что для вас важно и чем вы можете быть полезны клиентам или работодателю. Этот текст — заглушка, замените его на свой.</p>
+        <div class="facts">
+          <div class="fact"><b>10+</b><span>лет опыта</span></div>
+          <div class="fact"><b>25</b><span>проектов</span></div>
+          <div class="fact"><b>100%</b><span>вовлечённости</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРОЕКТЫ: три карточки-заглушки -->
+  <section id="projects">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Работы</span>
+        <h2>Проекты</h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="cover">⚡</div>
+          <div class="body">
+            <h3>Проект первый</h3>
+            <p>Короткое описание проекта: какую задачу он решает и что получилось в итоге.</p>
+            <div class="tags"><span class="tag">Тег</span><span class="tag">Ещё тег</span></div>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="cover">📊</div>
+          <div class="body">
+            <h3>Проект второй</h3>
+            <p>Здесь будет описание второго проекта — пара предложений о сути и результате.</p>
+            <div class="tags"><span class="tag">Тег</span><span class="tag">Ещё тег</span></div>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="cover">🤖</div>
+          <div class="body">
+            <h3>Проект третий</h3>
+            <p>Описание третьего проекта. Можно упомянуть инструменты и чем вы гордитесь.</p>
+            <div class="tags"><span class="tag">Тег</span><span class="tag">Ещё тег</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОБРАТНАЯ СВЯЗЬ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="box reveal" id="contact-box">
+        <div class="intro">
+          <span class="eyebrow">Контакты</span>
+          <h2>Давайте поговорим</h2>
+          <p>Есть идея, вопрос или предложение? Напишите пару слов — я отвечу, как только смогу.</p>
+        </div>
+        <div>
+          <form id="contact-form">
+            <label>Имя
+              <input type="text" name="name" placeholder="Как к вам обращаться" required>
+            </label>
+            <label>Email
+              <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+            <label>Сообщение
+              <textarea name="message" placeholder="Ваше сообщение…" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+          </form>
+          <div class="thanks">
+            <div class="icon">✓</div>
+            <h3>Спасибо!</h3>
+            <p>Сообщение получено. Я скоро с вами свяжусь.</p>
+            <button type="button" class="btn btn-ghost" id="again">Написать ещё</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Павел Мартьянов. Все права защищены.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Форма: пока просто показываем «спасибо» (сохранение добавим позже)
+    const box = document.getElementById('contact-box');
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      box.classList.add('sent');
+      form.reset();
+    });
+    document.getElementById('again').addEventListener('click', () => {
+      box.classList.remove('sent');
+    });
+
+    // Плавное появление блоков при прокрутке
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
