@@ -6,9 +6,12 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform .25s, box-shadow .25s;
 }
-.card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+/* Подъём при наведении — через translate, а не transform: transform занят
+   анимацией появления (css/reveal.css), и они бы перебивали друг друга.
+   Переход повторяет тайминги появления и добавляет свои для подъёма и тени. */
+.cards .card { transition: opacity .7s ease, transform .7s ease, translate .25s, box-shadow .25s; }
+.card:hover { translate: 0 -6px; box-shadow: var(--shadow); }
 .card .cover { height: 160px; display: grid; place-items: center; font-size: 48px; }
 .card:nth-child(1) .cover { background: linear-gradient(135deg, #f6d5c4, #e9a07f); }
 .card:nth-child(2) .cover { background: linear-gradient(135deg, #d6e4dc, #8fb8a2); }
