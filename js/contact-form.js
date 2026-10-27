@@ -1,5 +1,5 @@
 // Форма: отправляем сообщение на почту через Web3Forms и показываем «Спасибо!» или ошибку
-const CONTACT_KEY = 'ВСТАВИТЬ_КЛЮЧ_WEB3FORMS';
+const CONTACT_KEY = '5fef7f16-73fd-42b3-abbe-519b93ea165e';
 const box = document.getElementById('contact-box');
 const form = document.getElementById('contact-form');
 const contactError = document.getElementById('contact-error');
