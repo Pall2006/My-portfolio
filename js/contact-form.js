@@ -1,8 +1,10 @@
 // Форма: отправляем сообщение на почту через Web3Forms и показываем «Спасибо!» или ошибку
 const CONTACT_KEY = '5fef7f16-73fd-42b3-abbe-519b93ea165e';
+const CONTACT_MAX_LENGTH = 1000;
 const box = document.getElementById('contact-box');
 const form = document.getElementById('contact-form');
 const contactError = document.getElementById('contact-error');
+const contactTooLong = document.getElementById('contact-too-long');
 const contactButton = form.querySelector('button[type="submit"]');
 
 // true — письмо принято, false — любая ошибка (нет сети, 15 с без ответа, не 2xx, не JSON, success не true)
@@ -36,6 +38,8 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (contactButton.disabled) return;
   contactError.hidden = true;
+  contactTooLong.hidden = form.elements.message.value.length <= CONTACT_MAX_LENGTH;
+  if (!contactTooLong.hidden) return;
   contactButton.disabled = true;
   contactButton.textContent = 'Отправляем…';
   const ok = await contactSend(new FormData(form));
