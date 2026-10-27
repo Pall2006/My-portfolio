@@ -10,6 +10,7 @@
   --border: #ece5df;
   --radius: 20px;
   --shadow: 0 10px 30px rgba(60, 35, 20, 0.08);
+  --error: #b3261e;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,6 +22,7 @@
     --accent-soft: #3a2a22;
     --border: #2f2a26;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --error: #f2867c;
   }
 }
 

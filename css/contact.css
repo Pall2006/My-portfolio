@@ -27,6 +27,9 @@ input:focus, textarea:focus {
 }
 textarea { resize: vertical; min-height: 140px; }
 form .btn { justify-self: start; }
+form .btn:disabled { opacity: .6; cursor: default; }
+form .btn:disabled:hover { transform: none; box-shadow: none; }
+.form-error { color: var(--error); font-weight: 600; font-size: 14px; }
 
 .thanks { display: none; text-align: center; padding: 40px 0; }
 .thanks .icon {
